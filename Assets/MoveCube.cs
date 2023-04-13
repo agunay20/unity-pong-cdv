@@ -8,6 +8,7 @@ public class MoveCube : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Rigidbody2D rigidbody2D;
     public Color playercolor;
+    public float speed;
     public KeyCode upkey;
     public KeyCode downkey;
     public KeyCode leftkey;
@@ -25,21 +26,21 @@ public class MoveCube : MonoBehaviour
     {
         Debug.Log("Update");
 
-        if(Input.GetKey(upkey))
+        if(Input.GetKey(upkey) && transform.position.y < 5)
         {
-            rigidbody2D.velocity = Vector2.up*15;
+            rigidbody2D.velocity = Vector2.up * speed;
         }
-        else if(Input.GetKey(downkey))
+        else if(Input.GetKey(downkey) && transform.position.y > -5)
         {
-            rigidbody2D.velocity = Vector2.down*15;
+            rigidbody2D.velocity = Vector2.down * speed;
         }
         else if (Input.GetKey(rightkey))
         {
-            rigidbody2D.velocity = Vector2.right*15;
+            rigidbody2D.velocity = Vector2.right * speed;
         }
         else if (Input.GetKey(leftkey))
         {
-            rigidbody2D.velocity = Vector2.left*15;
+            rigidbody2D.velocity = Vector2.left * speed;
         }
         else
         {
